@@ -1,4 +1,4 @@
-package utils;
+package hw3.utils;
 
 import java.awt.Toolkit;
 import java.awt.Dimension;
@@ -16,5 +16,9 @@ public class ConfigurationManager {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Configuration.browserSize = String.format("%1$dx%2$d", screenSize.width, screenSize.height);
         Configuration.browserPosition = "0x0";
+    }
+
+    public void close() {
+
     }
 }

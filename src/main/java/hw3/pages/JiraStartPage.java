@@ -13,7 +13,7 @@ public class JiraStartPage {
     private final SelenideElement usernameField = $x("//input[@id='login-form-username']");
     private final SelenideElement passwordField = $x("//input[@id='login-form-password']");
     private final SelenideElement loginButton = $x("//input[@id='login']");
-    private final SelenideElement logoutButton = $x("//li[@id='user-options']//a[@id='log_out']");
+
 
     public void open() {
         Selenide.open("https://edujira.ifellow.ru");
@@ -27,7 +27,5 @@ public class JiraStartPage {
 
     }
 
-    public boolean logoutButtonExists() {
-        return logoutButton.shouldBe(Condition.exist).exists();
-    }
+
 }
