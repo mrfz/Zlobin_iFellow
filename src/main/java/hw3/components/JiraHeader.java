@@ -1,7 +1,6 @@
 package hw3.components;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -15,10 +14,6 @@ public class JiraHeader {
 
     public boolean logoutButtonExists() {
         return logoutButton.shouldBe(Condition.exist).exists();
-    }
-
-    public SelenideElement getLogoutButton() {
-        return logoutButton.shouldBe(Condition.visible);
     }
 
     public void openProjectsDashboard() {
