@@ -37,7 +37,7 @@ public class JiraTest {
     public void loginTest() {
         Selenide.open("https://edujira.ifellow.ru");
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login (CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
         assertTrue(jiraHeaderComponent.logoutButtonExists(), "Login failed");
@@ -48,7 +48,7 @@ public class JiraTest {
     public void moveToProjectTest() {
         Selenide.open("https://edujira.ifellow.ru");
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login (CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
 
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
@@ -66,7 +66,7 @@ public class JiraTest {
     public void checkNumberOfIssuesTest() {
         Selenide.open("https://edujira.ifellow.ru");
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login (CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
 
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
@@ -83,9 +83,9 @@ public class JiraTest {
 
         IssueCreationForm issueCreationForm = new IssueCreationForm();
         issueCreationForm.createIssue("Counter issue", "Issue to count issues");
-
+        Selenide.sleep(2000);
         Selenide.refresh();
-
+        Selenide.sleep(2000);
         assertEquals(numberOfIssues + 1, jiraProjectPage.getNumberOfIssues(), "Number of issues is incorrect");
     }
 
@@ -93,7 +93,7 @@ public class JiraTest {
     public void checkTestSeleniumATHomeworkTaskTest() {
         Selenide.open("https://edujira.ifellow.ru");
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login (CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
 
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
@@ -107,7 +107,40 @@ public class JiraTest {
 
         JiraTask jiraTaskPage = new JiraTask();
 
-        assertEquals("СДЕЛАТЬ" , jiraTaskPage.getTaskStatus(), "Task status is incorrect");
-        assertEquals("Version 2.0" , jiraTaskPage.getFixVersion(), "Fix version is incorrect");
+        assertEquals("СДЕЛАТЬ", jiraTaskPage.getTaskStatus(), "Task status is incorrect");
+        assertEquals("Version 2.0", jiraTaskPage.getFixVersion(), "Fix version is incorrect");
+    }
+
+    @Test
+    public void checkTaskFullProcessingTest() {
+        Selenide.open("https://edujira.ifellow.ru");
+        JiraStartPage jiraStartPage = new JiraStartPage();
+        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
+
+
+        JiraHeader jiraHeaderComponent = new JiraHeader();
+        jiraHeaderComponent.openProjectsDashboard();
+
+
+        JiraProjects jiraProjectsPage = new JiraProjects();
+        jiraProjectsPage.getTestProjectLink().click();
+
+        jiraHeaderComponent.getCreateIssueButton().click();
+
+        IssueCreationForm issueCreationForm = new IssueCreationForm();
+        issueCreationForm.createIssue("FullTestIssue", "Issue to move through full processing");
+
+        JiraProject jiraProjectPage = new JiraProject();
+        jiraProjectPage.getCreatedIssueLink().click();
+
+        JiraTask jiraTaskPage = new JiraTask();
+        jiraTaskPage.moveTaskToInProgress();
+        Selenide.sleep(2000);
+        jiraTaskPage.getTaskProcess().click();
+        Selenide.sleep(2000);
+        jiraTaskPage.getTaskDoneSelection().click();
+        Selenide.sleep(2000);
+        assertEquals("ГОТОВО", jiraTaskPage.getTaskStatus(), "Task status is incorrect");
+
     }
 }
