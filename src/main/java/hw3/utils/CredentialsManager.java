@@ -8,11 +8,11 @@ package hw3.utils;
  */
 public class CredentialsManager {
     public static String getUsername() {
-        return "AT2";
+        return "username";
     }
 
     public static String getPassword() {
-        return "Qwerty123";
+        return "password";
     }
 }
 
