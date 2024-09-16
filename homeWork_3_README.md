@@ -5,7 +5,7 @@
 - [x] Авторизоваться в edujira.ifellow.ru - `loginTest`
 - [x] Перейти в проект "Test" - `moveToProjectTest`
 - [x] Проверить общее кол-во заведенных задач в проекте - `checkNumberOfIssuesTest`
-- [ ] Перейти в задачу TestSeleniumATHomework и проверить: 
+- [x] Перейти в задачу TestSeleniumATHomework и проверить: - `checkTestSeleniumATHomeworkTaskTest`
 - 1. статус задачи - Сделать
 - 2. "Исправить в версиях - Version 2.0"
 - [ ] Создать новый баг с описанием, заполнить все поля на стадии создания. Провести задачу по статусам до закрытого

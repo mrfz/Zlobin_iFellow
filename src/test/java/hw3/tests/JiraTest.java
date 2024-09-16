@@ -6,6 +6,7 @@ import hw3.components.JiraHeader;
 import hw3.pages.JiraProject;
 import hw3.pages.JiraProjects;
 import hw3.pages.JiraStartPage;
+import hw3.pages.JiraTask;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -88,4 +89,25 @@ public class JiraTest {
         assertEquals(numberOfIssues + 1, jiraProjectPage.getNumberOfIssues(), "Number of issues is incorrect");
     }
 
+    @Test
+    public void checkTestSeleniumATHomeworkTaskTest() {
+        Selenide.open("https://edujira.ifellow.ru");
+        JiraStartPage jiraStartPage = new JiraStartPage();
+        jiraStartPage.login (CredentialsManager.getUsername(), CredentialsManager.getPassword());
+
+
+        JiraHeader jiraHeaderComponent = new JiraHeader();
+        jiraHeaderComponent.openProjectsDashboard();
+
+
+        JiraProjects jiraProjectsPage = new JiraProjects();
+        jiraProjectsPage.getTestProjectLink().click();
+
+        jiraHeaderComponent.openTaskByQuickSearch("TestSeleniumATHomework");
+
+        JiraTask jiraTaskPage = new JiraTask();
+
+        assertEquals("СДЕЛАТЬ" , jiraTaskPage.getTaskStatus(), "Task status is incorrect");
+        assertEquals("Version 2.0" , jiraTaskPage.getFixVersion(), "Fix version is incorrect");
+    }
 }
