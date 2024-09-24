@@ -1,7 +1,7 @@
-package Tests;
+package tests;
 
 import com.codeborne.selenide.Selenide;
-import Hooks.WebHook;
+import hooks.WebHook;
 import components.IssueCreationForm;
 import components.JiraHeader;
 import pages.JiraProject;
