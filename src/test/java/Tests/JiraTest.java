@@ -1,14 +1,14 @@
-package hw3.tests;
+package Tests;
 
 import com.codeborne.selenide.Selenide;
-import hw3.Hooks.WebHook;
-import hw3.components.IssueCreationForm;
-import hw3.components.JiraHeader;
-import hw3.pages.JiraProject;
-import hw3.pages.JiraProjects;
-import hw3.pages.JiraStartPage;
-import hw3.pages.JiraTask;
-import hw3.utils.CredentialsManager;
+import Hooks.WebHook;
+import components.IssueCreationForm;
+import components.JiraHeader;
+import pages.JiraProject;
+import pages.JiraProjects;
+import pages.JiraStartPage;
+import pages.JiraTask;
+import utils.CredentialsManager;
 import org.aeonbits.owner.ConfigCache;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package hw3.utils;
+package utils;
 
 import org.aeonbits.owner.Config;
 
