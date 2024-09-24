@@ -8,7 +8,7 @@ import pages.JiraProjects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MoveToProjectTest {
+public class MoveToProjectSteps {
 
     JiraHeader jiraHeaderComponent = new JiraHeader();
     JiraProjects jiraProjectsPage = new JiraProjects();
@@ -20,12 +20,12 @@ public class MoveToProjectTest {
     }
 
     @Затем("Пользователь нажимает на проект Test")
-    public void пользовательНажимаетНаПроектTest() {
+    public void clickOnTestProject() {
         jiraProjectsPage.getTestProjectLink().click();
     }
 
     @Тогда("Должно отобразится название проекта Test")
-    public void должноОтобразитсяНазваниеПроектаTest() {
+    public void shouldShowProjectName() {
         assertEquals("Test", jiraProjectPage.getProjectName());
     }
 }
