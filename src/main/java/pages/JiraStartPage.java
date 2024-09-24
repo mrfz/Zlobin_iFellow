@@ -18,7 +18,16 @@ public class JiraStartPage {
                 .setValue(username);
         passwordField.setValue(password);
         loginButton.click();
+    }
 
+    public void inputCredentials(String username, String password) {
+        usernameField.shouldBe(Condition.visible)
+                .setValue(username);
+        passwordField.setValue(password);
+    }
+
+    public void clickLogin() {
+        loginButton.click();
     }
 
 
