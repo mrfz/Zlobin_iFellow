@@ -1,24 +1,19 @@
 package hw3.utils;
 
-import java.awt.Toolkit;
-import java.awt.Dimension;
-import com.codeborne.selenide.Configuration;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 
 /**
  * Класс для хранения настроек selenide
  */
+
 public class ConfigurationManager {
 
-    /**
-     * Открывает браузер на полном разрешении экрана
-     */
-    public void openOnFullResolution() {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Configuration.browserSize = String.format("%1$dx%2$d", screenSize.width, screenSize.height);
-        Configuration.browserPosition = "0x0";
+    public static ChromeDriver getWebDriver(){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        return new ChromeDriver(options);
     }
 
-    public void close() {
-
-    }
 }
