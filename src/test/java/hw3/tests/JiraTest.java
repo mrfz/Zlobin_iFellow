@@ -1,37 +1,21 @@
 package hw3.tests;
 
 import com.codeborne.selenide.Selenide;
+import hw3.Hooks.WebHook;
 import hw3.components.IssueCreationForm;
 import hw3.components.JiraHeader;
 import hw3.pages.JiraProject;
 import hw3.pages.JiraProjects;
 import hw3.pages.JiraStartPage;
 import hw3.pages.JiraTask;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import hw3.utils.ConfigurationManager;
 import hw3.utils.CredentialsManager;
-
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class JiraTest {
-
-    @BeforeAll
-    public static void setUp() {
-        ConfigurationManager configurationManager = new ConfigurationManager();
-        configurationManager.openOnFullResolution();
-
-    }
-
-    @AfterEach
-    public void tearDown() {
-        JiraHeader jiraHeaderComponent = new JiraHeader();
-        jiraHeaderComponent.logout();
-    }
+public class JiraTest extends WebHook {
 
     @Test
     public void loginTest() {
