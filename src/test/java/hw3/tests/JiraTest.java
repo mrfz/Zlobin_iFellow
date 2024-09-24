@@ -9,6 +9,7 @@ import hw3.pages.JiraProjects;
 import hw3.pages.JiraStartPage;
 import hw3.pages.JiraTask;
 import hw3.utils.CredentialsManager;
+import org.aeonbits.owner.ConfigCache;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,20 +20,27 @@ public class JiraTest extends WebHook {
 
     @Test
     public void loginTest() {
-        Selenide.open("https://edujira.ifellow.ru");
+
+        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
+
+        Selenide.open(credentialsManager.url());
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
         assertTrue(jiraHeaderComponent.logoutButtonExists(), "Login failed");
 
     }
 
+
+
     @Test
     public void moveToProjectTest() {
-        Selenide.open("https://edujira.ifellow.ru");
+        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
+
+        Selenide.open(credentialsManager.url());
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
 
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
@@ -48,9 +56,11 @@ public class JiraTest extends WebHook {
 
     @Test
     public void checkNumberOfIssuesTest() {
-        Selenide.open("https://edujira.ifellow.ru");
+        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
+
+        Selenide.open(credentialsManager.url());
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
 
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
@@ -75,9 +85,11 @@ public class JiraTest extends WebHook {
 
     @Test
     public void checkTestSeleniumATHomeworkTaskTest() {
-        Selenide.open("https://edujira.ifellow.ru");
+        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
+
+        Selenide.open(credentialsManager.url());
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
 
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
@@ -97,9 +109,11 @@ public class JiraTest extends WebHook {
 
     @Test
     public void checkTaskFullProcessingTest() {
-        Selenide.open("https://edujira.ifellow.ru");
+        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
+
+        Selenide.open(credentialsManager.url());
         JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(CredentialsManager.getUsername(), CredentialsManager.getPassword());
+        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
 
 
         JiraHeader jiraHeaderComponent = new JiraHeader();
