@@ -1,9 +1,9 @@
-package steps;
+package ru.iFellow.steps;
 
-import components.JiraHeader;
+import ru.iFellow.components.JiraHeader;
 import io.cucumber.java.ru.Затем;
 import io.cucumber.java.ru.Тогда;
-import pages.JiraTask;
+import ru.iFellow.pages.JiraTask;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

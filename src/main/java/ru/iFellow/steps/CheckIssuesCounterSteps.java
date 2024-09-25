@@ -1,10 +1,9 @@
-package steps;
+package ru.iFellow.steps;
 
-import components.IssueCreationForm;
-import components.JiraHeader;
+import ru.iFellow.components.JiraHeader;
 import io.cucumber.java.ru.Затем;
 import io.cucumber.java.ru.Тогда;
-import pages.JiraProject;
+import ru.iFellow.pages.JiraProject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

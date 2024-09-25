@@ -176,6 +176,7 @@
                         <configurationParameters>
                             cucumber.junit-platform.naming-strategy=long
                             cucumber.plugin=pretty
+                            cucumber.glue=hooks
                         </configurationParameters>
                     </properties>
                     <parallel>methods</parallel>

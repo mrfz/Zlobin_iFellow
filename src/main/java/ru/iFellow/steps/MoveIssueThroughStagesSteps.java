@@ -1,8 +1,8 @@
-package steps;
+package ru.iFellow.steps;
 
 import com.codeborne.selenide.Selenide;
 import io.cucumber.java.ru.Затем;
-import pages.JiraTask;
+import ru.iFellow.pages.JiraTask;
 
 public class MoveIssueThroughStagesSteps {
     JiraTask jiraTaskPage = new JiraTask();

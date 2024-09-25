@@ -1,4 +1,4 @@
-package utils;
+package ru.iFellow.utils;
 
 import org.aeonbits.owner.Config;
 
@@ -11,6 +11,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({"classpath:CredentialsManager.properties"})
 public interface CredentialsManager extends Config  {
 
+    @DefaultValue("localhost")
     String url();
     @DefaultValue("username")
     String username();

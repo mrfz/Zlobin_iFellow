@@ -1,19 +1,18 @@
-package steps;
+package ru.iFellow.steps;
 
 import com.codeborne.selenide.Selenide;
-import components.JiraHeader;
+import ru.iFellow.components.JiraHeader;
 import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.Затем;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 import org.aeonbits.owner.ConfigCache;
-import pages.JiraStartPage;
-import utils.CredentialsManager;
+import ru.iFellow.pages.JiraStartPage;
+import ru.iFellow.utils.CredentialsManager;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginSteps {
-    CommonSteps commonSteps = new CommonSteps();
     CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
     JiraStartPage jiraStartPage = new JiraStartPage();
     JiraHeader jiraHeaderComponent = new JiraHeader();
