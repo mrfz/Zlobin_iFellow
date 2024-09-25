@@ -26,6 +26,8 @@ public class JiraHeader {
         allProjectsLink.shouldBe(Condition.visible).click();
     }
 
+
+
     public void logout() {
         userOptions.click();
         logoutButton.click();
@@ -38,12 +40,22 @@ public class JiraHeader {
     public void openTaskByQuickSearch(String field) {
         String fieldXPath = String.format(".//span[@class='quick-search-item-title' and contains(text(),%s)]",field);
 
+        fillQuickSearch(field);
+        openFoundedByQuickSearch(field);
+
+    }
+
+    public void fillQuickSearch(String field) {
         fieldQuickSearch.shouldBe(Condition.visible)
                 .setValue(field);
+    }
+
+    public void openFoundedByQuickSearch(String field) {
+        String fieldXPath = String.format(".//span[@class='quick-search-item-title' and contains(text(),%s)]",field);
+
         searchDropdownResults.shouldBe(Condition.visible)
                 .$x(fieldXPath)
                 .click();
-
     }
 
 
