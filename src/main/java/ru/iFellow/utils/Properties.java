@@ -11,11 +11,17 @@ public interface Properties extends Config{
     @Key("rickandmorty.api.character.uri")
     String characterUri();
 
-    @Key("character.id")
+
+    @Key("rickandmorty.api.character.id")
     long characterId();
 
-    @Key("character.name")
+    @Key("rickandmorty.api.character.name")
     String characterName();
 
+    @Key("rickandmorty.api.episode.uri")
+    String episodeUri();
+
+    @Key("rickandmorty.api.episode.id")
+    long episodeId();
 
 }

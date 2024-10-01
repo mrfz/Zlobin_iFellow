@@ -31,4 +31,14 @@ public class RickAndMortyApi extends Specifications  {
                 .then()
                 .spec(Specifications.baseResponseSpec());
     }
+
+    public ValidatableResponse getEpisode(long id) {
+        return given()
+                .spec(Specifications.baseRequestSpec(props.rickAndMortyUri()))
+                .when()
+                .get(props.episodeUri() + "/" + id)
+                .then()
+                .spec(Specifications.baseResponseSpec());
+    }
+
 }

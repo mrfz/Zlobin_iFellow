@@ -14,7 +14,7 @@ public class Specifications {
         return new RequestSpecBuilder()
                 .setBaseUri(url)
                 .setContentType("application/json")
-                .log(LogDetail.BODY)
+                .log(LogDetail.URI)
                 .build();
     };
 

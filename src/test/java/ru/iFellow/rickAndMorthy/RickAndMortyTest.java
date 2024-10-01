@@ -4,6 +4,7 @@ import org.aeonbits.owner.ConfigCache;
 import org.junit.Assert;
 import org.junit.Test;
 import ru.iFellow.api.rickAndMorty.RickAndMortyApi;
+import ru.iFellow.dto.rickAndMorty.Episode;
 import ru.iFellow.dto.rickAndMorty.SeriesCharacter;
 import ru.iFellow.steps.rickAndMorty.RickAndMortySteps;
 import ru.iFellow.utils.Properties;
@@ -36,5 +37,24 @@ public class RickAndMortyTest {
         SeriesCharacter  firstCharacter= steps.getCharacterIdByName(props.characterName());
         Assert.assertThat(firstCharacter.getId(), is(props.characterId()));
     }
+
+    @Test
+    public void getEpisodeTest() {
+        api.getEpisode(1)
+                .and().body("id", is(1));
+    }
+
+    @Test
+    public void getEpisodeByIdTest() {
+        Episode episode = steps.getEpisodeById(props.episodeId());
+        Assert.assertEquals(props.episodeId(), episode.id);
+    }
+
+    @Test
+    public void getLastEpisodeFromCharacterTest() {
+        Episode episode = steps.getLastEpisodeFromCharacter(props.characterName());
+        Assert.assertEquals(51, episode.id);
+    }
+
 
 }
