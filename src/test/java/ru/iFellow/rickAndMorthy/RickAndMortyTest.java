@@ -53,8 +53,15 @@ public class RickAndMortyTest {
     @Test
     public void getLastEpisodeFromCharacterTest() {
         Episode episode = steps.getLastEpisodeFromCharacter(props.characterName());
-        Assert.assertEquals(51, episode.id);
+        Assert.assertEquals(props.episodeCorrectId(), episode.id);
     }
+
+    @Test
+    public void getLastCharacterFromEpisodeTest() {
+        SeriesCharacter character = steps.getLastCharacterFromEpisode(props.episodeCorrectId());
+        Assert.assertEquals(props.characterCorrectId(), character.id);
+    }
+
 
 
 }

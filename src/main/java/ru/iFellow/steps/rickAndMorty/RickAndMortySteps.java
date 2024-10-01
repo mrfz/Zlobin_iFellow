@@ -42,4 +42,11 @@ public class RickAndMortySteps {
         return getEpisodeById(episodeId);
     }
 
+    public SeriesCharacter getLastCharacterFromEpisode(long episodeId) {
+        Episode episode = getEpisodeById(episodeId);
+        String LastCharacterLink = episode.getCharacters().get(episode.getCharacters().size()-1);
+        long characterId = Long.parseLong(LastCharacterLink.substring(LastCharacterLink.lastIndexOf("/")+1));
+        return getCharacterById(characterId);
+    }
+
 }
