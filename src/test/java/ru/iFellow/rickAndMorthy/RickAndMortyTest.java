@@ -35,7 +35,7 @@ public class RickAndMortyTest {
     @Test
     public void getCharacterByNameTest() {
         SeriesCharacter  firstCharacter= steps.getCharacterIdByName(props.characterName());
-        Assert.assertThat(firstCharacter.getId(), is(props.characterId()));
+        Assert.assertEquals(firstCharacter.getId(), props.characterId());
     }
 
     @Test
