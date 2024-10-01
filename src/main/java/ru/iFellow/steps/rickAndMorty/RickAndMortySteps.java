@@ -7,7 +7,7 @@ import ru.iFellow.dto.rickAndMorty.SeriesCharacter;
 
 public class RickAndMortySteps {
 
-    private static final RickAndMortyApi API = new RickAndMortyApi();
+    private final RickAndMortyApi API = new RickAndMortyApi();
 
     public SeriesCharacter getCharacterById(long id) {
         return API.getCharacter(id)

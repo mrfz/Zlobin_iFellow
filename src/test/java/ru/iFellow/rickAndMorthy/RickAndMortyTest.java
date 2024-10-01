@@ -15,7 +15,7 @@ public class RickAndMortyTest {
 
 
     Properties props = ConfigCache.getOrCreate(Properties.class);
-    private static final RickAndMortySteps steps = new RickAndMortySteps();
+    private final RickAndMortySteps steps = new RickAndMortySteps();
     private final RickAndMortyApi api = new RickAndMortyApi();
 
 
