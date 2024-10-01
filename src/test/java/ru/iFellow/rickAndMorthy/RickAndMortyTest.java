@@ -62,6 +62,13 @@ public class RickAndMortyTest {
         Assert.assertEquals(props.characterCorrectId(), character.id);
     }
 
+    @Test
+    public void checkLocationAndSpeciesTest() {
+        SeriesCharacter characterMorty = steps.getCharacterIdByName(props.characterName());
+        SeriesCharacter characterToCheck = steps.getLastCharacterFromEpisode(steps.getLastEpisodeFromCharacter(props.characterName()).getId());
+        Assert.assertNotEquals(characterMorty.getLocation(), characterToCheck.getLocation());
+        Assert.assertEquals(characterMorty.getSpecies(), characterToCheck.getSpecies());
 
+    }
 
 }
