@@ -11,14 +11,13 @@ public class RickAndMortyApi extends Specifications  {
 
 
     Properties props = ConfigCache.getOrCreate(Properties.class);
-    private final String CHARACTER_URI = props.characterUri();
 
 
     public ValidatableResponse getCharacter(long id) {
         return given()
                 .spec(Specifications.baseRequestSpec(props.rickAndMortyUri()))
                 .when()
-                .get(CHARACTER_URI + "/" + id)
+                .get(props.characterUri() + "/" + id)
                 .then()
                 .spec(Specifications.baseResponseSpec());
     }
@@ -27,7 +26,7 @@ public class RickAndMortyApi extends Specifications  {
         return given()
                 .spec(Specifications.baseRequestSpec(props.rickAndMortyUri()))
                 .when().queryParam("name", filter)
-                .get(CHARACTER_URI)
+                .get(props.characterUri())
                 .then()
                 .spec(Specifications.baseResponseSpec());
     }
