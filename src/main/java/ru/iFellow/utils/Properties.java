@@ -30,4 +30,18 @@ public interface Properties extends Config{
     @Key("rickandmorty.api.episode.correctId")
     long episodeCorrectId();
 
+    @Key("reqres.api.uri")
+    String reqresUri();
+
+    @Key("reqres.api.create")
+    String reqresCreate();
+
+    @Key("reqres.user.name")
+    String reqresUserName();
+
+    @Key("reqres.user.job")
+    String reqresUserJob();
+
+    @Key("reqres.json.path")
+    String reqresJsonPath();
 }
