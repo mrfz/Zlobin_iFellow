@@ -1,18 +1,20 @@
 package ru.iFellow.reqres;
 
 import org.aeonbits.owner.ConfigCache;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import ru.iFellow.api.reqres.ReqResApi;
 import ru.iFellow.dto.reqres.User;
 import ru.iFellow.steps.reqres.ReqResSteps;
 import ru.iFellow.utils.Properties;
 
-
 import java.io.IOException;
 
 import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 
 public class ReqResTest {
 
@@ -22,6 +24,7 @@ public class ReqResTest {
 
 
     @Test
+    @DisplayName("Проверка пост запроса создания пользователя")
     public void postUserTest() {
         User newUser = new User();
         newUser.setName(props.reqresUserName());
@@ -35,9 +38,10 @@ public class ReqResTest {
     }
 
     @Test
+    @DisplayName("Проверка создания пользователя из файла")
     public void createUserFromFileTest() throws IOException {
         User newUser = steps.createUserFromFile(props.reqresJsonPath());
-        Assert.assertEquals(newUser.getName(), props.reqresUserName());
-        Assert.assertEquals(newUser.getJob(), props.reqresUserJob());
+        assertEquals(newUser.getName(), props.reqresUserName());
+        assertEquals(newUser.getJob(), props.reqresUserJob());
     }
 }
