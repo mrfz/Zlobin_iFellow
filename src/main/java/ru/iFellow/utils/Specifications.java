@@ -16,13 +16,28 @@ public class Specifications {
                 .setContentType("application/json")
                 .log(LogDetail.URI)
                 .build();
-    };
+    }
 
     public static ResponseSpecification baseResponseSpec () {
         return new ResponseSpecBuilder()
                 .expectStatusCode(HttpStatus.SC_OK)
                 .log(LogDetail.BODY)
                 .build();
-    };
+    }
+
+    public static RequestSpecification postRequestSpec (String url) {
+        return new RequestSpecBuilder()
+                .setBaseUri(url)
+                .setContentType("application/json")
+                .log(LogDetail.ALL)
+                .build();
+    }
+
+    public static ResponseSpecification postResponseSpec () {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(HttpStatus.SC_CREATED)
+                .log(LogDetail.ALL)
+                .build();
+    }
 
 }
