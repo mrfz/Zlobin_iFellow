@@ -10,11 +10,13 @@ import org.aeonbits.owner.Config;
  */
 @Config.Sources({"classpath:CredentialsManager.properties"})
 public interface CredentialsManager extends Config  {
-
+    @Key("url")
     String url();
-    @DefaultValue("username")
+
+    @Key("username")
     String username();
-    @DefaultValue("password")
+
+    @Key("password")
     String password();
 }
 

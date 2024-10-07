@@ -10,6 +10,7 @@ import hw3.pages.JiraStartPage;
 import hw3.pages.JiraTask;
 import hw3.utils.CredentialsManager;
 import org.aeonbits.owner.ConfigCache;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class JiraTest extends WebHook {
 
     @Test
+    @DisplayName("Проверка авторизации")
     public void loginTest() {
 
         CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
@@ -35,6 +37,7 @@ public class JiraTest extends WebHook {
 
 
     @Test
+    @DisplayName("Проверка перехода на проект")
     public void moveToProjectTest() {
         CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
 
@@ -55,6 +58,7 @@ public class JiraTest extends WebHook {
     }
 
     @Test
+    @DisplayName("Проверка счетчика количества задач")
     public void checkNumberOfIssuesTest() {
         CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
 
@@ -84,6 +88,7 @@ public class JiraTest extends WebHook {
     }
 
     @Test
+    @DisplayName("Проверка задачи SeleniumATHomeworkTaskTest")
     public void checkTestSeleniumATHomeworkTaskTest() {
         CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
 
@@ -108,6 +113,7 @@ public class JiraTest extends WebHook {
     }
 
     @Test
+    @DisplayName("Проверка провода задачи по этапам выполнения")
     public void checkTaskFullProcessingTest() {
         CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
 
