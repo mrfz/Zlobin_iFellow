@@ -1,4 +1,4 @@
-package hw3.utils;
+package ru.iFellow.utils;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

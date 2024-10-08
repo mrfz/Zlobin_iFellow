@@ -1,7 +1,7 @@
-package hw3.steps;
+package ru.iFellow.steps;
 
-import hw3.components.JiraHeader;
-import hw3.pages.JiraProject;
+import ru.iFellow.components.JiraHeader;
+import ru.iFellow.pages.JiraProject;
 import io.qameta.allure.Step;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

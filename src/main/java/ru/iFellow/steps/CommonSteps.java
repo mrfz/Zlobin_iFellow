@@ -1,7 +1,7 @@
-package hw3.steps;
+package ru.iFellow.steps;
 
 import com.codeborne.selenide.Selenide;
-import hw3.components.IssueCreationForm;
+import ru.iFellow.components.IssueCreationForm;
 import io.qameta.allure.Step;
 
 public class CommonSteps {

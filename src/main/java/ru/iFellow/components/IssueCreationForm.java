@@ -1,4 +1,4 @@
-package hw3.components;
+package ru.iFellow.components;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;

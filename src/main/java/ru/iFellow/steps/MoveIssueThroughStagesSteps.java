@@ -1,7 +1,7 @@
-package hw3.steps;
+package ru.iFellow.steps;
 
-import hw3.pages.JiraProject;
-import hw3.pages.JiraTask;
+import ru.iFellow.pages.JiraProject;
+import ru.iFellow.pages.JiraTask;
 import io.qameta.allure.Step;
 
 public class MoveIssueThroughStagesSteps {

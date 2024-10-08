@@ -1,9 +1,9 @@
-package hw3.steps;
+package ru.iFellow.steps;
 
 import com.codeborne.selenide.Selenide;
-import hw3.components.JiraHeader;
-import hw3.pages.JiraStartPage;
-import hw3.utils.CredentialsManager;
+import ru.iFellow.components.JiraHeader;
+import ru.iFellow.pages.JiraStartPage;
+import ru.iFellow.utils.CredentialsManager;
 import io.qameta.allure.Step;
 import org.aeonbits.owner.ConfigCache;
 

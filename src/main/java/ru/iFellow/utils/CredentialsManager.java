@@ -1,4 +1,4 @@
-package hw3.utils;
+package ru.iFellow.utils;
 
 import org.aeonbits.owner.Config;
 

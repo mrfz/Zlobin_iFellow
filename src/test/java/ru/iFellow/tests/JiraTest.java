@@ -1,8 +1,8 @@
-package hw3.tests;
+package ru.iFellow.tests;
 
-import hw3.Hooks.WebHook;
-import hw3.steps.*;
-import hw3.utils.TestDataManager;
+import ru.iFellow.Hooks.WebHook;
+import ru.iFellow.steps.*;
+import ru.iFellow.utils.TestDataManager;
 import org.aeonbits.owner.ConfigCache;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

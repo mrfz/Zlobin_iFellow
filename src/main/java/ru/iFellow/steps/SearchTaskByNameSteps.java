@@ -1,8 +1,8 @@
-package hw3.steps;
+package ru.iFellow.steps;
 
 import com.codeborne.selenide.Condition;
-import hw3.components.JiraHeader;
-import hw3.pages.JiraTask;
+import ru.iFellow.components.JiraHeader;
+import ru.iFellow.pages.JiraTask;
 import io.qameta.allure.Step;
 
 import java.time.Duration;

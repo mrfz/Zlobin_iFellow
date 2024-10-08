@@ -1,9 +1,9 @@
-package hw3.Hooks;
+package ru.iFellow.Hooks;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import hw3.utils.ConfigurationManager;
+import ru.iFellow.utils.ConfigurationManager;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
