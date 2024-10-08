@@ -8,29 +8,26 @@ import hw3.pages.JiraProject;
 import hw3.pages.JiraProjects;
 import hw3.pages.JiraStartPage;
 import hw3.pages.JiraTask;
+import hw3.steps.LoginSteps;
 import hw3.utils.CredentialsManager;
 import org.aeonbits.owner.ConfigCache;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
+@DisplayName("Тестирование Jira")
 public class JiraTest extends WebHook {
 
     @Test
     @DisplayName("Проверка авторизации")
     public void loginTest() {
+        LoginSteps loginSteps = new LoginSteps();
 
-        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
-
-        Selenide.open(credentialsManager.url());
-        JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
-
-        JiraHeader jiraHeaderComponent = new JiraHeader();
-        assertTrue(jiraHeaderComponent.logoutButtonExists(), "Login failed");
+        loginSteps.browserOpen();
+        loginSteps.login();
+        loginSteps.pressSubmitButton();
+        loginSteps.checkLogoutButton();
 
     }
 

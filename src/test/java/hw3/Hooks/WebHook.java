@@ -2,9 +2,12 @@ package hw3.Hooks;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import hw3.utils.ConfigurationManager;
 import io.qameta.allure.Step;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 public class WebHook {
@@ -15,6 +18,13 @@ public class WebHook {
 
         WebDriverRunner.setWebDriver(ConfigurationManager.getWebDriver());
 
+    }
+
+    @BeforeAll
+    public static void setUpAllureLogger() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true));
     }
 
     @Step("Закрытие веб-драйвера")
