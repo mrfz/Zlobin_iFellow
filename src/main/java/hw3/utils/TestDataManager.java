@@ -14,5 +14,8 @@ public interface TestDataManager extends Config {
     @Key("taskToSearch.status")
     String taskToSearchStatus();
 
+    @Key("taskToProcess.status")
+    String taskToProcessStatus();
+
 
 }

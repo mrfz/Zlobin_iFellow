@@ -13,12 +13,6 @@ public class JiraStartPage {
     private final SelenideElement passwordField = $x("//input[@id='login-form-password']").as("Поле пароля");
     private final SelenideElement loginButton = $x("//input[@id='login']").as("Кнопка входа");
 
-    public void login(String username, String password) {
-        usernameField.shouldBe(Condition.visible)
-                .setValue(username);
-        passwordField.setValue(password);
-        loginButton.click();
-    }
 
     public void inputCredentials(String username, String password) {
         usernameField.shouldBe(Condition.visible)

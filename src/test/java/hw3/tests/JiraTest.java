@@ -1,21 +1,11 @@
 package hw3.tests;
 
-import com.codeborne.selenide.Selenide;
 import hw3.Hooks.WebHook;
-import hw3.components.IssueCreationForm;
-import hw3.components.JiraHeader;
-import hw3.pages.JiraProject;
-import hw3.pages.JiraProjects;
-import hw3.pages.JiraStartPage;
-import hw3.pages.JiraTask;
 import hw3.steps.*;
-import hw3.utils.CredentialsManager;
 import hw3.utils.TestDataManager;
 import org.aeonbits.owner.ConfigCache;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Тестирование Jira")
 public class JiraTest extends WebHook {
@@ -99,36 +89,35 @@ public class JiraTest extends WebHook {
     @Test
     @DisplayName("Проверка провода задачи по этапам выполнения")
     public void checkTaskFullProcessingTest() {
-        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
 
-        Selenide.open(credentialsManager.url());
-        JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
+        LoginSteps loginSteps = new LoginSteps();
+        MoveToProjectSteps moveToProjectSteps = new MoveToProjectSteps();
+        CheckNumberOfIssuesSteps checkNumberOfIssuesSteps = new CheckNumberOfIssuesSteps();
+        CommonSteps commonSteps = new CommonSteps();
+        MoveIssueThroughStagesSteps moveIssue = new MoveIssueThroughStagesSteps();
+        SearchTaskByNameSteps searchTaskByNameSteps = new SearchTaskByNameSteps();
+        TestDataManager testData = ConfigCache.getOrCreate(TestDataManager.class);
 
 
-        JiraHeader jiraHeaderComponent = new JiraHeader();
-        jiraHeaderComponent.openProjectsDashboard();
 
+        loginSteps.browserOpen();
+        loginSteps.login();
+        loginSteps.pressSubmitButton();
 
-        JiraProjects jiraProjectsPage = new JiraProjects();
-        jiraProjectsPage.getTestProjectLink().click();
+        moveToProjectSteps.openProjectsDashboard();
+        moveToProjectSteps.clickOnTestProject();
 
-        jiraHeaderComponent.getCreateIssueButton().click();
+        checkNumberOfIssuesSteps.saveNumberOfIssues();
+        checkNumberOfIssuesSteps.callCreateIssueForm();
+        commonSteps.fillTask("Counter issue", "Issue to count issues");
 
-        IssueCreationForm issueCreationForm = new IssueCreationForm();
-        issueCreationForm.createIssue("FullTestIssue", "Issue to move through full processing");
+        moveIssue.openTask();
+        moveIssue.moveIssueToInProgress();
+        searchTaskByNameSteps.checkTaskStatus("СДЕЛАТЬ");
+        moveIssue.openContextMenuBusinessProcess();
+        moveIssue.moveIssueToDone();
+        commonSteps.updatePage();
 
-        JiraProject jiraProjectPage = new JiraProject();
-        jiraProjectPage.getCreatedIssueLink().click();
-
-        JiraTask jiraTaskPage = new JiraTask();
-        jiraTaskPage.moveTaskToInProgress();
-        Selenide.sleep(2000);
-        jiraTaskPage.getTaskProcess().click();
-        Selenide.sleep(2000);
-        jiraTaskPage.getTaskDoneSelection().click();
-        Selenide.sleep(2000);
-        assertEquals("ГОТОВО", jiraTaskPage.getTaskStatus(), "Task status is incorrect");
-
+        searchTaskByNameSteps.checkTaskStatus(testData.taskToProcessStatus());
     }
 }

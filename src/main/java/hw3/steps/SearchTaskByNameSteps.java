@@ -1,8 +1,11 @@
 package hw3.steps;
 
+import com.codeborne.selenide.Condition;
 import hw3.components.JiraHeader;
 import hw3.pages.JiraTask;
 import io.qameta.allure.Step;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -22,7 +25,7 @@ public class SearchTaskByNameSteps {
 
     @Step("Проверяем что статус задачи {taskStatus}")
     public void checkTaskStatus(String taskStatus) {
-        assertEquals(taskStatus, jiraTaskPage.getTaskStatus(), "Task status is incorrect");
+        jiraTaskPage.getTaskStatus().shouldHave(Condition.text(taskStatus), Duration.ofSeconds(5));
     }
 
     @Step("Проверяем что исправить задачу в {taskFixIn}")

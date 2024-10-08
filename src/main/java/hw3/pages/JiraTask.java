@@ -1,7 +1,10 @@
 package hw3.pages;
 
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -12,8 +15,8 @@ public class JiraTask {
     private final SelenideElement taskProcess = $x("//span[@class='dropdown-text' and contains(text(), 'Бизнес-процесс')]").as("Бизнес-процесс задачи");
     private final SelenideElement taskDoneSelection = $x("//aui-dropdown-menu[@id='opsbar-transitions_more_drop']//span[contains(text(), 'Выполнено')]/parent::a/parent::aui-item-link").as("Завершение задачи");
 
-    public String getTaskStatus() {
-        return taskStatus.getText();
+    public SelenideElement getTaskStatus() {
+        return taskStatus;
     }
 
     public String getFixVersion() {
@@ -24,13 +27,12 @@ public class JiraTask {
         taskInProgress.click();
     }
 
-
     public SelenideElement getTaskProcess() {
         return taskProcess;
     }
 
     public SelenideElement getTaskDoneSelection() {
-        return taskDoneSelection;
+        return taskDoneSelection.shouldBe(Condition.visible, Duration.ofSeconds(3));
     }
 
 
