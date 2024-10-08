@@ -1,10 +1,11 @@
 package ru.iFellow.steps;
 
+import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
 import ru.iFellow.components.JiraHeader;
 import ru.iFellow.pages.JiraProject;
-import io.qameta.allure.Step;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.time.Duration;
 
 public class CheckNumberOfIssuesSteps {
     JiraProject jiraProjectPage = new JiraProject();
@@ -25,5 +26,7 @@ public class CheckNumberOfIssuesSteps {
 
     @Step("Проверяем что количество задач увеличилось на 1")
     public void checkNumberOfIssues() {
-        assertEquals(numberOfIssuesBeforeCreation + 1, jiraProjectPage.getNumberOfIssues(), "Number of issues is incorrect");
+        jiraProjectPage.getNumberOfIssuesElement().shouldHave(
+                Condition.text(String.valueOf(numberOfIssuesBeforeCreation+1)),
+                Duration.ofSeconds(6));
     }}

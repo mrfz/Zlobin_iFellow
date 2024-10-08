@@ -18,6 +18,10 @@ public class JiraProject {
         return Integer.parseInt(numberOfIssues.shouldBe(Condition.visible).getText().replaceAll("1 из ",""));
     }
 
+    public SelenideElement getNumberOfIssuesElement() {
+        return numberOfIssues;
+    }
+
     public SelenideElement getCreatedIssueLink() {
         return createdIssueLink.shouldBe(Condition.visible);
     }
