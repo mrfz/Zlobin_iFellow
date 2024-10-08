@@ -7,8 +7,6 @@ import hw3.utils.CredentialsManager;
 import io.qameta.allure.Step;
 import org.aeonbits.owner.ConfigCache;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public class LoginSteps{
     CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
     JiraStartPage jiraStartPage = new JiraStartPage();

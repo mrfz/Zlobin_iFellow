@@ -11,7 +11,6 @@ import hw3.pages.JiraTask;
 import hw3.steps.LoginSteps;
 import hw3.steps.MoveToProjectSteps;
 import hw3.utils.CredentialsManager;
-import io.qameta.allure.Step;
 import org.aeonbits.owner.ConfigCache;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -26,11 +26,6 @@ public class JiraHeader {
         allProjectsLink.shouldBe(Condition.visible).click();
     }
 
-    public void logout() {
-        userOptions.click();
-        logoutButton.click();
-    }
-
     public SelenideElement getCreateIssueButton() {
         return createIssueButton.shouldBe(Condition.visible);
     }
