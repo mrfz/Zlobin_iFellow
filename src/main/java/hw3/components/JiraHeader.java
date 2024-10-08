@@ -17,8 +17,8 @@ public class JiraHeader {
     private final SelenideElement searchDropdownResults = navBarSecondary.$x(".//div[@class='quicksearch-dropdown']").as("Результаты поиска");
 
 
-    public SelenideElement logoutButtonExists() {
-        return logoutButton.shouldBe(Condition.exist);
+    public boolean logoutButtonExists() {
+        return logoutButton.shouldBe(Condition.exist).exists();
     }
 
     public void openProjectsDashboard() {
@@ -26,19 +26,23 @@ public class JiraHeader {
         allProjectsLink.shouldBe(Condition.visible).click();
     }
 
+
     public SelenideElement getCreateIssueButton() {
         return createIssueButton.shouldBe(Condition.visible);
     }
 
-    public void openTaskByQuickSearch(String field) {
-        String fieldXPath = String.format(".//span[@class='quick-search-item-title' and contains(text(),%s)]",field);
 
+    public void fillQuickSearch(String field) {
         fieldQuickSearch.shouldBe(Condition.visible)
                 .setValue(field);
+    }
+
+    public void openFoundedByQuickSearch(String field) {
+        String fieldXPath = String.format(".//span[@class='quick-search-item-title' and contains(text(),%s)]",field);
+
         searchDropdownResults.shouldBe(Condition.visible)
                 .$x(fieldXPath)
                 .click();
-
     }
 
 

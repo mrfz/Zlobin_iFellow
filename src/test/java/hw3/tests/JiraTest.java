@@ -8,11 +8,9 @@ import hw3.pages.JiraProject;
 import hw3.pages.JiraProjects;
 import hw3.pages.JiraStartPage;
 import hw3.pages.JiraTask;
-import hw3.steps.CheckNumberOfIssuesSteps;
-import hw3.steps.CommonSteps;
-import hw3.steps.LoginSteps;
-import hw3.steps.MoveToProjectSteps;
+import hw3.steps.*;
 import hw3.utils.CredentialsManager;
+import hw3.utils.TestDataManager;
 import org.aeonbits.owner.ConfigCache;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -77,26 +75,25 @@ public class JiraTest extends WebHook {
     @Test
     @DisplayName("Проверка задачи SeleniumATHomeworkTaskTest")
     public void checkTestSeleniumATHomeworkTaskTest() {
-        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
-
-        Selenide.open(credentialsManager.url());
-        JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
-
-
-        JiraHeader jiraHeaderComponent = new JiraHeader();
-        jiraHeaderComponent.openProjectsDashboard();
+        LoginSteps loginSteps = new LoginSteps();
+        MoveToProjectSteps moveToProjectSteps = new MoveToProjectSteps();
+        SearchTaskByNameSteps searchTaskByNameSteps = new SearchTaskByNameSteps();
+        TestDataManager testData = ConfigCache.getOrCreate(TestDataManager.class);
 
 
-        JiraProjects jiraProjectsPage = new JiraProjects();
-        jiraProjectsPage.getTestProjectLink().click();
+        loginSteps.browserOpen();
+        loginSteps.login();
+        loginSteps.pressSubmitButton();
 
-        jiraHeaderComponent.openTaskByQuickSearch("TestSeleniumATHomework");
+        moveToProjectSteps.openProjectsDashboard();
+        moveToProjectSteps.clickOnTestProject();
 
-        JiraTask jiraTaskPage = new JiraTask();
+        searchTaskByNameSteps.fillQuickSearch(testData.taskToSearchName());
+        searchTaskByNameSteps.openTask(testData.taskToSearchName());
+        searchTaskByNameSteps.checkFixIn(testData.taskToSearchVersion());
+        searchTaskByNameSteps.checkTaskStatus(testData.taskToSearchStatus());
 
-        assertEquals("СДЕЛАТЬ", jiraTaskPage.getTaskStatus(), "Task status is incorrect");
-        assertEquals("Version 2.0", jiraTaskPage.getFixVersion(), "Fix version is incorrect");
+
     }
 
     @Test
