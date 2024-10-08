@@ -8,6 +8,8 @@ import hw3.pages.JiraProject;
 import hw3.pages.JiraProjects;
 import hw3.pages.JiraStartPage;
 import hw3.pages.JiraTask;
+import hw3.steps.CheckNumberOfIssuesSteps;
+import hw3.steps.CommonSteps;
 import hw3.steps.LoginSteps;
 import hw3.steps.MoveToProjectSteps;
 import hw3.utils.CredentialsManager;
@@ -51,31 +53,25 @@ public class JiraTest extends WebHook {
     @Test
     @DisplayName("Проверка счетчика количества задач")
     public void checkNumberOfIssuesTest() {
-        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
-
-        Selenide.open(credentialsManager.url());
-        JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
-
-
-        JiraHeader jiraHeaderComponent = new JiraHeader();
-        jiraHeaderComponent.openProjectsDashboard();
+        LoginSteps loginSteps = new LoginSteps();
+        MoveToProjectSteps moveToProjectSteps = new MoveToProjectSteps();
+        CheckNumberOfIssuesSteps checkNumberOfIssuesSteps = new CheckNumberOfIssuesSteps();
+        CommonSteps commonSteps = new CommonSteps();
 
 
-        JiraProjects jiraProjectsPage = new JiraProjects();
-        jiraProjectsPage.getTestProjectLink().click();
+        loginSteps.browserOpen();
+        loginSteps.login();
+        loginSteps.pressSubmitButton();
 
-        JiraProject jiraProjectPage = new JiraProject();
-        int numberOfIssues = jiraProjectPage.getNumberOfIssues();
+        moveToProjectSteps.openProjectsDashboard();
+        moveToProjectSteps.clickOnTestProject();
 
-        jiraHeaderComponent.getCreateIssueButton().click();
+        checkNumberOfIssuesSteps.saveNumberOfIssues();
+        checkNumberOfIssuesSteps.callCreateIssueForm();
+        commonSteps.fillTask("Counter issue", "Issue to count issues");
+        commonSteps.updatePage();
+        checkNumberOfIssuesSteps.checkNumberOfIssues();
 
-        IssueCreationForm issueCreationForm = new IssueCreationForm();
-        issueCreationForm.createIssue("Counter issue", "Issue to count issues");
-        Selenide.sleep(2000);
-        Selenide.refresh();
-        Selenide.sleep(2000);
-        assertEquals(numberOfIssues + 1, jiraProjectPage.getNumberOfIssues(), "Number of issues is incorrect");
     }
 
     @Test
