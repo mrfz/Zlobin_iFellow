@@ -9,7 +9,9 @@ import hw3.pages.JiraProjects;
 import hw3.pages.JiraStartPage;
 import hw3.pages.JiraTask;
 import hw3.steps.LoginSteps;
+import hw3.steps.MoveToProjectSteps;
 import hw3.utils.CredentialsManager;
+import io.qameta.allure.Step;
 import org.aeonbits.owner.ConfigCache;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,27 +33,20 @@ public class JiraTest extends WebHook {
 
     }
 
-
-
     @Test
     @DisplayName("Проверка перехода на проект")
     public void moveToProjectTest() {
-        CredentialsManager credentialsManager = ConfigCache.getOrCreate(CredentialsManager.class);
+        LoginSteps loginSteps = new LoginSteps();
+        MoveToProjectSteps moveToProjectSteps = new MoveToProjectSteps();
 
-        Selenide.open(credentialsManager.url());
-        JiraStartPage jiraStartPage = new JiraStartPage();
-        jiraStartPage.login(credentialsManager.username(), credentialsManager.password());
+        loginSteps.browserOpen();
+        loginSteps.login();
+        loginSteps.pressSubmitButton();
 
+        moveToProjectSteps.openProjectsDashboard();
+        moveToProjectSteps.clickOnTestProject();
+        moveToProjectSteps.shouldShowProjectName();
 
-        JiraHeader jiraHeaderComponent = new JiraHeader();
-        jiraHeaderComponent.openProjectsDashboard();
-
-
-        JiraProjects jiraProjectsPage = new JiraProjects();
-        jiraProjectsPage.getTestProjectLink().click();
-
-        JiraProject jiraProjectPage = new JiraProject();
-        assertEquals("Test", jiraProjectPage.getProjectName());
     }
 
     @Test
