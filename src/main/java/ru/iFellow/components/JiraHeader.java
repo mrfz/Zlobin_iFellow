@@ -5,6 +5,11 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
+
+/**
+ * Класс, описывающий навигационную панель
+ * @author Fedor Zlobin
+ */
 public class JiraHeader {
     private final SelenideElement navBarPrimary = $x("//div[@class='aui-header-primary']").as("Основная навигационная панель");
     private final SelenideElement navBarSecondary = $x("//div[@class='aui-header-secondary']").as("Вспомогательная навигационная панель");
@@ -15,27 +20,43 @@ public class JiraHeader {
     private final SelenideElement fieldQuickSearch = navBarSecondary.$x(".//input[@id='quickSearchInput']").as("Поле быстрого поиска");
     private final SelenideElement searchDropdownResults = navBarSecondary.$x(".//div[@class='quicksearch-dropdown']").as("Результаты поиска");
 
-
+    /**
+     * Проверяет наличие кнопки выхода и возвращает ее
+     * @return <b>SelenideElement</b> - кнопка выхода
+     */
     public SelenideElement logoutButtonExists() {
         return logoutButton.shouldBe(Condition.exist);
     }
 
+    /**
+     * Открывает дашборд проектов
+     */
     public void openProjectsDashboard() {
         projectsMenu.shouldBe(Condition.visible).click();
         allProjectsLink.shouldBe(Condition.visible).click();
     }
 
-
+    /**
+     * Проверяет наличие кнопки создания задачи и возвращает ее
+     * @return <b>SelenideElement</b> - кнопка создания задачи
+     */
     public SelenideElement getCreateIssueButton() {
         return createIssueButton.shouldBe(Condition.visible);
     }
 
-
+    /**
+     * Заполняет поле быстрого поиска
+     * @param field текст для поиска
+     */
     public void fillQuickSearch(String field) {
         fieldQuickSearch.shouldBe(Condition.visible)
                 .setValue(field);
     }
 
+    /**
+     * Открывает результаты поиска
+     * @param field текст для вызова из результатов поиска
+     */
     public void openFoundedByQuickSearch(String field) {
         String fieldXPath = String.format(".//span[@class='quick-search-item-title' and contains(text(),%s)]",field);
 

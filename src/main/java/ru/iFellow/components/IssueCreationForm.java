@@ -6,6 +6,10 @@ import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$x;
 
+/**
+ * Компонент формы создания задачи
+ * @author Fedor Zlobin
+ */
 public class IssueCreationForm {
     private final SelenideElement issueForm = $x("//section[@id='create-issue-dialog']").as("Форма создания задачи");
     private final SelenideElement issueTitle = issueForm.$x(".//input[@id='summary']").as("Название задачи");
@@ -18,6 +22,11 @@ public class IssueCreationForm {
     private final SelenideElement issueSeverity = issueForm.$x(".//label[contains(text(), 'Серьезность')]/following-sibling::select/option[contains(text(),'S0 Тривиальный/Trivial')]").as("Серьезность задачи");
 
 
+    /**
+     * Создание задачи, функция проходит по форме и заполняет поля
+     * @param title название задачи
+     * @param description описание задачи
+     */
     public void createIssue(String title, String description) {
         issueForm.shouldBe(Condition.visible);
         issueTitle.setValue(title);
