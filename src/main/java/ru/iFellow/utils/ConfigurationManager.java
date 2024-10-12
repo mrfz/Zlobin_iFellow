@@ -8,11 +8,18 @@ import java.io.File;
 
 
 /**
- * Класс для хранения настроек selenide
+ * Класс задания конфигурации браузера\
+ * @author Fedor Zlobin
  */
-
 public class ConfigurationManager {
 
+    /**
+     * Конфигурация браузера
+     * Если в папке проекта есть файл вебдрайвера то используем его,
+     * иначе используем браузер selenide по умолчанию
+     * @author Fedor Zlobin
+     * @return <code>ChromeDriver</code> объект браузера
+     */
     public static ChromeDriver getWebDriver(){
         BrowserConfig browserConfig = ConfigCache.getOrCreate(BrowserConfig.class);
 

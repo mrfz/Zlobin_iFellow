@@ -3,13 +3,14 @@ package ru.iFellow.utils;
 import org.aeonbits.owner.Config;
 
 /**
- * Класс для хранения учетных данных
+ * Класс для получения учетных данных из проперти файла
  * в репозитории хранится с данными по умолчанию,
- * для работы в приложении необходимо изменить возвращаемые параметры
- *
+ * для работы в приложении необходимо изменить параметры в проперти файле
+ * @author Fedor Zlobin
  */
 @Config.Sources({"classpath:CredentialsManager.properties"})
 public interface CredentialsManager extends Config  {
+
     @Key("url")
     String url();
 

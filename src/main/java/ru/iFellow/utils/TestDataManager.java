@@ -2,6 +2,10 @@ package ru.iFellow.utils;
 
 import org.aeonbits.owner.Config;
 
+/**
+ * Класс для получения тестовых данных из проперти файла
+ * @author Fedor Zlobin
+ */
 @Config.Sources({"classpath:TestData.properties"})
 public interface TestDataManager extends Config {
 
@@ -16,7 +20,5 @@ public interface TestDataManager extends Config {
 
     @Key("taskToProcess.status")
     String taskToProcessStatus();
-
-
 
 }
