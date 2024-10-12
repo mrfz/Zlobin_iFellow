@@ -22,7 +22,7 @@ public class JiraHeader {
 
     /**
      * Проверяет наличие кнопки выхода и возвращает ее
-     * @return <b>SelenideElement</b> - кнопка выхода
+     * @return <code>SelenideElement</code> - кнопка выхода
      */
     public SelenideElement logoutButtonExists() {
         return logoutButton.shouldBe(Condition.exist);
@@ -38,7 +38,7 @@ public class JiraHeader {
 
     /**
      * Проверяет наличие кнопки создания задачи и возвращает ее
-     * @return <b>SelenideElement</b> - кнопка создания задачи
+     * @return <code>SelenideElement</code> - кнопка создания задачи
      */
     public SelenideElement getCreateIssueButton() {
         return createIssueButton.shouldBe(Condition.visible);
