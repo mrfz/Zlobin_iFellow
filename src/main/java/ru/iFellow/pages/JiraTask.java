@@ -56,7 +56,7 @@ public class JiraTask {
      * @return <code>SelenideElement</code> - элемент кнопки завершения задачи
      */
     public SelenideElement getTaskDoneSelection() {
-        return taskDoneSelection.shouldBe(Condition.visible, Duration.ofSeconds(3));
+        return taskDoneSelection.shouldBe(Condition.visible, Duration.ofSeconds(5));
     }
 
 
