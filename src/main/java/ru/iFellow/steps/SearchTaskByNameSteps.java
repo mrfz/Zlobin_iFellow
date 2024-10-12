@@ -9,6 +9,10 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Шаги поиска задач по названию
+ * @author Fedor Zlobin
+ */
 public class SearchTaskByNameSteps {
     JiraHeader jiraHeaderComponent = new JiraHeader();
     JiraTask jiraTaskPage = new JiraTask();

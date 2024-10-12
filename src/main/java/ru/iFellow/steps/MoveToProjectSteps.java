@@ -7,6 +7,10 @@ import io.qameta.allure.Step;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Шаги проверки перехода на страницу проекта Test
+ * @author Fedor Zlobin
+ */
 public class MoveToProjectSteps {
     JiraHeader jiraHeaderComponent = new JiraHeader();
     JiraProjects jiraProjectsPage = new JiraProjects();

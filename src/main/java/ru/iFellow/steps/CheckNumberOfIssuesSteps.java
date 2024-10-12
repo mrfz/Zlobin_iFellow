@@ -7,6 +7,10 @@ import ru.iFellow.pages.JiraProject;
 
 import java.time.Duration;
 
+/**
+ * Шаги проверки колчиства задач в проекте
+ * @author Fedor Zlobin
+ */
 public class CheckNumberOfIssuesSteps {
     JiraProject jiraProjectPage = new JiraProject();
     JiraHeader jiraHeaderComponent = new JiraHeader();

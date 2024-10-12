@@ -4,6 +4,10 @@ import ru.iFellow.pages.JiraProject;
 import ru.iFellow.pages.JiraTask;
 import io.qameta.allure.Step;
 
+/**
+ * Шаги проверки перемещения задачи по стадиям
+ * @author Fedor Zlobin
+ */
 public class MoveIssueThroughStagesSteps {
     JiraTask jiraTaskPage = new JiraTask();
     JiraProject jiraProject = new JiraProject();
@@ -17,7 +21,6 @@ public class MoveIssueThroughStagesSteps {
     public void moveIssueToInProgress() {
         jiraTaskPage.moveTaskToInProgress();
     }
-
 
     @Step("Пользователь вызывает контекстное меню Бизнес-процесс")
     public void openContextMenuBusinessProcess() {

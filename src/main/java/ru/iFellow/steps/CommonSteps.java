@@ -4,6 +4,10 @@ import com.codeborne.selenide.Selenide;
 import ru.iFellow.components.IssueCreationForm;
 import io.qameta.allure.Step;
 
+/**
+ * Общие шаги для тестов
+ * @author Fedor Zlobin
+ */
 public class CommonSteps {
     IssueCreationForm issueCreationForm = new IssueCreationForm();
 
@@ -14,8 +18,6 @@ public class CommonSteps {
 
     @Step("Обновляем страницу")
     public void updatePage() {
-
         Selenide.refresh();
-
     }
 }
