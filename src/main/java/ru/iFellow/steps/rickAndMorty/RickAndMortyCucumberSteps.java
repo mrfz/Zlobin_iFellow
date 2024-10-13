@@ -3,9 +3,7 @@ package ru.iFellow.steps.rickAndMorty;
 import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.Затем;
 import io.cucumber.java.ru.Тогда;
-import io.qameta.allure.Step;
 import org.aeonbits.owner.ConfigCache;
-import ru.iFellow.api.rickAndMorty.RickAndMortyApi;
 import ru.iFellow.dto.rickAndMorty.SeriesCharacter;
 import ru.iFellow.utils.Properties;
 
@@ -14,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class RickAndMortyCucumberSteps {
 
-    RickAndMortySteps rickAndMortySteps = new RickAndMortySteps();
-    Properties properties = ConfigCache.getOrCreate(Properties.class);
+    final RickAndMortySteps rickAndMortySteps = new RickAndMortySteps();
+    final Properties properties = ConfigCache.getOrCreate(Properties.class);
     SeriesCharacter firstCharacter = new SeriesCharacter();
     SeriesCharacter lastCharacter = new SeriesCharacter();
 

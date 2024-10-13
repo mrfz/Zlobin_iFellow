@@ -1,4 +1,4 @@
-package tests;
+package ru.iFellow.cucumberRunner;
 
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;

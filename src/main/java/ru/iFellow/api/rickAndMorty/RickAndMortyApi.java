@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class RickAndMortyApi extends Specifications  {
 
 
-    Properties props = ConfigCache.getOrCreate(Properties.class);
+    final Properties props = ConfigCache.getOrCreate(Properties.class);
 
 
     public ValidatableResponse getCharacter(long id) {

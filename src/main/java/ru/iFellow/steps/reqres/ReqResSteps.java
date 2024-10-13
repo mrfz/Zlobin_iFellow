@@ -21,20 +21,6 @@ public class ReqResSteps {
 
     private final Properties props = ConfigCache.getOrCreate(Properties.class);
 
-
-    public User createUserFromFile(String path) throws IOException {
-
-        File jsonFile = new File(path);
-        User user = objectMapper.readValue(jsonFile, User.class);
-        user.setName(props.reqresUserName());
-        user.setJob(props.reqresUserJob());
-    return    API.postUser(user)
-                .statusCode(anyOf(is(200), is(201)))
-                .extract()
-                .body()
-        .as(User.class);
-    }
-
     @Step("Создаем пользователя из файла {path}")
     public User createUserFromFileStep(String path) throws IOException {
         File jsonFile = new File(path);
