@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class RickAndMortyTest {
+public class RickAndMorty {
 
 
     Properties props = ConfigCache.getOrCreate(Properties.class);

@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 
-public class ReqResTest {
+public class ReqRes {
 
     Properties props  = ConfigCache.getOrCreate(Properties.class);
     private final ReqResSteps steps = new ReqResSteps();

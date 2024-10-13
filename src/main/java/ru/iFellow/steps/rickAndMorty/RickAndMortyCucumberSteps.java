@@ -18,7 +18,7 @@ public class RickAndMortyCucumberSteps {
     Properties properties = ConfigCache.getOrCreate(Properties.class);
     SeriesCharacter firstCharacter = new SeriesCharacter();
     SeriesCharacter lastCharacter = new SeriesCharacter();
-    private final RickAndMortyApi api = new RickAndMortyApi();
+
 
 
     @Дано("Получаем персонажа по заданному имени")
