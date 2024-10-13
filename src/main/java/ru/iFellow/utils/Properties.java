@@ -2,10 +2,11 @@ package ru.iFellow.utils;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:config.properties")
+@Config.Sources("classpath:api.properties")
 public interface Properties extends Config{
 
     @Key("rickandmorty.api.uri")
+    @DefaultValue("someUri")
     String rickAndMortyUri();
 
     @Key("rickandmorty.api.character.uri")
