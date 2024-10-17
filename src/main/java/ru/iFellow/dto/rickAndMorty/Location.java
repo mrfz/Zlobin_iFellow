@@ -4,6 +4,10 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Объект местоположения
+ * @author Fedor Zlobin
+ */
 @Data
 public class Location {
     public int id;

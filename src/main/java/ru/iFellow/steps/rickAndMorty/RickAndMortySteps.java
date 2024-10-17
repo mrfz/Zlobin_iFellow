@@ -12,6 +12,10 @@ import ru.iFellow.dto.rickAndMorty.SeriesCharacter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+/**
+ * Шаги тестов API RickAndMorty для отчета Allure
+ * @author Fedor Zlobin
+ */
 public class RickAndMortySteps {
 
     private final RickAndMortyApi API = new RickAndMortyApi();

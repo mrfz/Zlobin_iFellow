@@ -5,6 +5,10 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Объект эпизода сериала Rick and Morty
+ * @author Fedor Zlobin
+ */
 @Data
 public class Episode {
     public int id;

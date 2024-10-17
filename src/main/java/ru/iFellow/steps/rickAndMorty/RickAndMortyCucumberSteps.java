@@ -7,6 +7,10 @@ import org.aeonbits.owner.ConfigCache;
 import ru.iFellow.dto.rickAndMorty.SeriesCharacter;
 import ru.iFellow.utils.Properties;
 
+/**
+ * Сценарий для тестирования сервиса Rick And Morty
+ * @author Fedor Zlobin
+ */
 public class RickAndMortyCucumberSteps {
 
     final RickAndMortySteps rickAndMortySteps = new RickAndMortySteps();
@@ -26,17 +30,19 @@ public class RickAndMortyCucumberSteps {
                 rickAndMortySteps.getLastEpisodeFromCharacter(
                         properties.characterName()
                 )
-                                 .getId());
+                 .getId());
     }
 
     @Тогда("Проверяем не совпадение локации")
     public void checkLocation() {
-        rickAndMortySteps.checkLocationStep(this.firstCharacter.getLocation(), this.lastCharacter.getLocation());
+        rickAndMortySteps.checkLocationStep(this.firstCharacter.getLocation(),
+                                            this.lastCharacter.getLocation());
     }
 
     @Тогда("Проверяем совпадение расы")
     public void checkSpecies() {
-        rickAndMortySteps.checkSpeciesStep(this.firstCharacter.getSpecies(), this.lastCharacter.getSpecies());
+        rickAndMortySteps.checkSpeciesStep( this.firstCharacter.getSpecies(),
+                                            this.lastCharacter.getSpecies());
     }
 
 }

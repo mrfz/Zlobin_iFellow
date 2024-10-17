@@ -8,10 +8,18 @@ import ru.iFellow.utils.Specifications;
 
 import static io.restassured.RestAssured.given;
 
+/**
+ * Класс для работы с API ReqRes
+ */
 public class ReqResApi extends Specifications {
 
     final Properties props = ConfigCache.getOrCreate(Properties.class);
 
+    /**
+     * Метод для создания пользователя
+     * @param user {@link User} - объект пользователя
+     * @return {@link ValidatableResponse} - ответ сервера
+     */
     public ValidatableResponse postUser(User user) {
         return given()
                 .spec(Specifications.postRequestSpec(props.reqresUri()))
@@ -20,5 +28,4 @@ public class ReqResApi extends Specifications {
                 .then()
                 .spec(Specifications.postResponseSpec());
     }
-
 }

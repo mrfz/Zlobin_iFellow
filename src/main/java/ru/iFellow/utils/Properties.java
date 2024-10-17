@@ -2,6 +2,10 @@ package ru.iFellow.utils;
 
 import org.aeonbits.owner.Config;
 
+/**
+ * Класс для хранения настроек приложения
+ * @author Fedor Zlobin
+ */
 @Config.Sources("classpath:api.properties")
 public interface Properties extends Config{
 
@@ -13,23 +17,11 @@ public interface Properties extends Config{
     String characterUri();
 
 
-    @Key("rickandmorty.api.character.id")
-    long characterId();
-
     @Key("rickandmorty.api.character.name")
     String characterName();
 
-    @Key("rickandmorty.api.character.correctId")
-    long characterCorrectId();
-
     @Key("rickandmorty.api.episode.uri")
     String episodeUri();
-
-    @Key("rickandmorty.api.episode.id")
-    long episodeId();
-
-    @Key("rickandmorty.api.episode.correctId")
-    long episodeCorrectId();
 
     @Key("reqres.api.uri")
     String reqresUri();

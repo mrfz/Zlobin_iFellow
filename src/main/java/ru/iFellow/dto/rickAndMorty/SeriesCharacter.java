@@ -5,6 +5,10 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Объект с информацией о персонаже
+ * @author Fedor Zlobin
+ */
 @Data
 public class SeriesCharacter {
     public long id;

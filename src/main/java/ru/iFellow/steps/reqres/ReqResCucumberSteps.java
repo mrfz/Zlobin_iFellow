@@ -9,6 +9,10 @@ import ru.iFellow.utils.Properties;
 
 import java.io.IOException;
 
+/**
+ * Шаги тестов ReqRes реализованные на Cucumber
+ * @author Fedor Zlobin
+ */
 public class ReqResCucumberSteps {
 
     private final ReqResSteps reqResSteps = new ReqResSteps();

@@ -12,6 +12,10 @@ import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Шаги тестов ReqRes для отчетов allure
+ * @author Fedor Zlobin
+ */
 public class ReqResSteps {
 
     private final ReqResApi API = new ReqResApi();
