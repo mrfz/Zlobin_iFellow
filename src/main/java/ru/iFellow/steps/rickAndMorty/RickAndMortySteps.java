@@ -3,9 +3,14 @@ package ru.iFellow.steps.rickAndMorty;
 
 import io.qameta.allure.Step;
 import org.apache.http.HttpStatus;
+
 import ru.iFellow.api.rickAndMorty.RickAndMortyApi;
 import ru.iFellow.dto.rickAndMorty.Episode;
+import ru.iFellow.dto.rickAndMorty.Location;
 import ru.iFellow.dto.rickAndMorty.SeriesCharacter;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class RickAndMortySteps {
 
@@ -56,4 +61,13 @@ public class RickAndMortySteps {
         return getCharacterById(characterId);
     }
 
+    @Step("Проверка локации персонажа {firstLocation} != {secondLocation}")
+    public void checkLocationStep(Location firstLocation, Location secondLocation) {
+        assertNotEquals(firstLocation.getName(), secondLocation.getName());
+    }
+
+    @Step("Проверка расы персонажа {firstSpecies} == {secondSpecies}")
+    public void checkSpeciesStep(String firstSpecies, String secondSpecies) {
+        assertEquals(firstSpecies, secondSpecies);
+    }
 }

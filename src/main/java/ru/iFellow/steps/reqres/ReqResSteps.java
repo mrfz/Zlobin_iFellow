@@ -43,14 +43,14 @@ public class ReqResSteps {
                 .as(User.class);
     }
 
-    @Step("Проверяем имя пользователя {firstUser}")
-    public void checkUserName(User firstUser, User secondUser) {
-        assertEquals(firstUser.getName(), secondUser.getName());
+    @Step("Проверяем имя пользователя созданного пользователя")
+    public void checkUserName(String firstUserName, String secondUserName) {
+        assertEquals(firstUserName, secondUserName);
     }
 
-    @Step("Проверяем работу пользователя {firstUser}")
-    public void checkUserJob(User firstUser, User secondUser) {
-        assertEquals(firstUser.getJob(), secondUser.getJob());
+    @Step("Проверяем работу пользователя созданного пользователя")
+    public void checkUserJob(String firstUserJob, String secondUserJob) {
+        assertEquals(firstUserJob, secondUserJob);
     }
 
 }

@@ -38,7 +38,7 @@ public class ReqResCucumberSteps {
 
     @Затем("Проверяем имя и работу созданного пользователя")
     public void checkCreatedUser() {
-        reqResSteps.checkUserName(this.createdUser, this.user);
-        reqResSteps.checkUserJob(this.createdUser, this.user);
+        reqResSteps.checkUserName(this.createdUser.getName(), this.user.getName());
+        reqResSteps.checkUserJob(this.createdUser.getJob(), this.user.getJob());
     }
 }
