@@ -2,10 +2,8 @@ package ru.iFellow.steps.reqres;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.qameta.allure.Step;
-import org.aeonbits.owner.ConfigCache;
 import ru.iFellow.api.reqres.ReqResApi;
 import ru.iFellow.dto.reqres.User;
-import ru.iFellow.utils.Properties;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +17,6 @@ public class ReqResSteps {
     private final ReqResApi API = new ReqResApi();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    private final Properties props = ConfigCache.getOrCreate(Properties.class);
-
     @Step("Создаем пользователя из файла {path}")
     public User createUserFromFileStep(String path) throws IOException {
         File jsonFile = new File(path);
@@ -33,7 +29,6 @@ public class ReqResSteps {
         user.setJob(job);
         return user;
     }
-
 
     public User postUser(User user) {
         return API.postUser(user)
