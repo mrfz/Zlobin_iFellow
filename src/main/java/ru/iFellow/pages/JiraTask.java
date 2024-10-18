@@ -6,6 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Selenide.$x;
 
 /**
@@ -17,7 +18,8 @@ public class JiraTask {
     private final SelenideElement taskFixVersion = $x("//span[@id='fixVersions-field']/a").as("Исправить в версии");
     private final SelenideElement taskInProgress = $x("//span[@class='trigger-label' and contains(text(), 'В работе')]").as("Задача в работе");
     private final SelenideElement taskProcess = $x("//span[@class='dropdown-text' and contains(text(), 'Бизнес-процесс')]").as("Бизнес-процесс задачи");
-    private final SelenideElement taskDoneSelection = $x("//aui-dropdown-menu[@id='opsbar-transitions_more_drop']//span[contains(text(), 'Выполнено')]/parent::a/parent::aui-item-link").as("Завершение задачи");
+    private final SelenideElement taskDoneSelection = $x("//aui-dropdown-menu[@id='opsbar-transitions_more_drop']//span[contains(text(), 'Выполнено')]/parent::a").as("Завершение задачи");
+    private final SelenideElement taskDoneDropDown = $x("//aui-dropdown-menu[@id='opsbar-transitions_more_drop']").as("Выпадающий список бизнес-процесса задачи");
 
     /**
      * Получить элемент статуса задачи
@@ -60,4 +62,7 @@ public class JiraTask {
     }
 
 
+    public void checkTaskDoneDropDownVisibility() {
+        taskDoneDropDown.shouldHave(cssValue("z-index", "3000"));
+    }
 }

@@ -1,5 +1,6 @@
 package ru.iFellow.Hooks;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -17,7 +18,8 @@ public class WebHook {
     public void setUp() {
 
         WebDriverRunner.setWebDriver(ConfigurationManager.getWebDriver());
-
+        Configuration.clickViaJs = true;
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @BeforeAll

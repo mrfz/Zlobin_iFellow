@@ -116,7 +116,7 @@ public class JiraTest extends WebHook {
         searchTaskByNameSteps.checkTaskStatus("СДЕЛАТЬ");
         moveIssue.openContextMenuBusinessProcess();
         moveIssue.moveIssueToDone();
-        commonSteps.updatePage();
+
 
         searchTaskByNameSteps.checkTaskStatus(testData.taskToProcessStatus());
     }

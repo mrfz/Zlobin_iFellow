@@ -25,6 +25,7 @@ public class MoveIssueThroughStagesSteps {
     @Step("Пользователь вызывает контекстное меню Бизнес-процесс")
     public void openContextMenuBusinessProcess() {
         jiraTaskPage.getTaskProcess().click();
+        jiraTaskPage.checkTaskDoneDropDownVisibility();
     }
 
     @Step("Пользователь переводит задачу в состояние Выполнено")
